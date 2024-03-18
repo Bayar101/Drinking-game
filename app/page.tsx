@@ -11,7 +11,13 @@ export default function Home({
   return (
     <main className="w-full h-screen overflow-hidden flex flex-col gap-4 items-center p-[32px]">
       <Navigation />
-      <CardsContainer layout={searchParams?.layout} />
+      {searchParams?.layout ? (
+        <CardsContainer layout={searchParams?.layout} />
+      ) : (
+        <div className="flex justify-center items-center w-full h-full">
+          To continue please select a layout from above
+        </div>
+      )}
     </main>
   );
 }
